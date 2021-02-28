@@ -163,7 +163,7 @@ budgetmanagermodule.free = (strategy, exchange, asset, volume) ->
     assetBudget = getAssetBudget(strategy, exchange, asset)
 
     try
-        if !assetBudget.inUse then throw new Error("This asset which is not inUse!")
+        if !assetBudget.inUse then throw new Error("Tried to free asset which is not inUse!")
         if assetBudget.inUse < volume then throw new Error("We have "+assetBudget.inUse+" inUse of "+asset+" but want to free "+volume+"!")
     catch err
         log err.stack
